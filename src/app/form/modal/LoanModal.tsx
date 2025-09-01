@@ -169,7 +169,21 @@ export default function LoanModal({
           </div>
 
           <div style={{ marginTop: 24 }}>
-            <div style={{ textAlign: "right" }}>
+            <div
+              style={{
+                textAlign: "right",
+                display: "flex",
+                gap: 8,
+                justifyContent: "flex-end",
+              }}
+            >
+              <Button
+                type="button"
+                onClick={onClose}
+                style={{ background: "#9ca3af" }}
+              >
+                Batal
+              </Button>
               <Button type="submit">
                 {isEdit ? "Simpan Perubahan" : "Simpan Peminjaman"}
               </Button>
