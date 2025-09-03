@@ -2,13 +2,25 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Main, Card, Title, Form, Label, Input, Button, Message } from "../component/StyledComponent";
+import {
+  Main,
+  Card,
+  Title,
+  Form,
+  Label,
+  Input,
+  Button,
+  Message,
+} from "../component/StyledComponent";
 
-export default function RegisterPage() {
+export default function Login() {
   const router = useRouter();
 
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [message, setMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -44,11 +56,25 @@ export default function RegisterPage() {
         <Form onSubmit={handleSubmit}>
           <div>
             <Label>Email</Label>
-            <Input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Masukkan email" required />
+            <Input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Masukkan email"
+              required
+            />
           </div>
           <div>
             <Label>Password</Label>
-            <Input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Masukkan password" required />
+            <Input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Masukkan password"
+              required
+            />
           </div>
           <Button type="submit">Login</Button>
         </Form>

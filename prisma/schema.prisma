@@ -41,3 +41,11 @@ model Loan {
   returned  Boolean  @default(false)
 }
 
+model Book {
+  id        Int      @id @default(autoincrement())
+  namaBuku  String
+  judulBuku String
+  rak       String
+  createdAt DateTime @default(now())
+}
+
