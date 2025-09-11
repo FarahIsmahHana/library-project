@@ -27,8 +27,9 @@ export async function POST(req: Request) {
       message: "Data berhasil diupdate!",
       data: updatedLoan,
     });
-  } catch (err: any) {
-    console.error("Error update loan:", err.message);
+  } catch (err: unknown) {
+    const error = err as Error;
+    console.error("Error update loan:", error.message);
     return NextResponse.json({
       success: false,
       message: "Gagal mengupdate data",
