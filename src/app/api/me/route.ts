@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   try {
     const decoded = jwt.verify(token, "123"); // Use your secret
     return NextResponse.json({ success: true, user: decoded });
-  } catch (err) {
+  } catch {
     return NextResponse.json({ success: false, message: "Invalid or expired token" }, { status: 401 });
   }
 }

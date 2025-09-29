@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
 export async function GET() {
@@ -7,7 +7,7 @@ export async function GET() {
       orderBy: { createdAt: "desc" },
     });
     return NextResponse.json({ success: true, data: loans });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ success: false, message: "Gagal mengambil data peminjaman" }, { status: 500 });
   }
 }

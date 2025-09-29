@@ -11,19 +11,19 @@ export async function POST(req: NextRequest) {
     }
 
     // Simpan data peminjaman ke database (contoh: tabel Loan)
-  const loan = await prisma.loan.create({
-    data: {
-      nama,
-      noBuku,
-      judulBuku,
-      pengarang,
-      tglPinjam: new Date(tglPinjam),
-      tglKembali: new Date(tglKembali),
-    },
-  });
+    const loan = await prisma.loan.create({
+      data: {
+        nama,
+        noBuku,
+        judulBuku,
+        pengarang,
+        tglPinjam: new Date(tglPinjam),
+        tglKembali: new Date(tglKembali),
+      },
+    });
 
-  return NextResponse.json({ success: true, message: "Peminjaman berhasil disimpan", data: loan });
-  } catch (error) {
-    return NextResponse.json({ success: false, message: "Terjadi kesalahan server" }, { status: 500 });
+    return NextResponse.json({ success: true, message: "Peminjaman berhasil disimpan", data: loan });
+    } catch {
+      return NextResponse.json({ success: false, message: "Terjadi kesalahan server" }, { status: 500 });
   }
 }
